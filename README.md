@@ -21,7 +21,7 @@ Naming
 
 Organization
 - All pages should be their own javascript file
-- CSS should be on it's own file
+- CSS should be on it's own file.
 
 Documentation
 - Each function has a comment above the script following this format:
