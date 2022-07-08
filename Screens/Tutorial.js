@@ -8,12 +8,14 @@ import {
   Alert,
   Pressable,
   Image,
-} from "react-native";
+} from "react-native"; 
 
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 
-function MySchedule({ navigation }) {
+import { Searchbar } from "react-native-paper";
+
+function Tutorial({ navigation }) {
   return (
     <View style={styles.appContainer}>
       <View style={styles.headerContainer}>
@@ -45,7 +47,7 @@ function MySchedule({ navigation }) {
 
       <View style={styles.middleContainer}>
         <View>
-          <Text style={styles.heading}>My Schedule</Text>
+          <Text style={styles.heading}> Tutorial </Text>
           <Text style={styles.bodyText}></Text>
         </View>
       </View>
@@ -74,7 +76,7 @@ function MySchedule({ navigation }) {
   );
 }
 
-export default MySchedule;
+export default Tutorial;
 
 const styles = StyleSheet.create({
   appContainer: {
@@ -185,7 +187,6 @@ const styles = StyleSheet.create({
     marginRight: 30,
     marginLeft: 30,
     flexDirection: "row",
-
     width: 120,
     height: 62,
     borderRadius: 10,

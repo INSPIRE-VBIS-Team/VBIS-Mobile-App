@@ -12,14 +12,15 @@ import { useNavigation, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Contact from "./Screens/Contact";
 import AboutVbis from "./Screens/AboutVbis";
-import TopHeader from "./Componenets/TopHeader";
+import TopHeader from "./Components/TopHeader";
 import Programs from "./Screens/Programs";
 import MySchedule from "./Screens/MySchedule";
 import VbisSchedule from "./Screens/VbisSchedule";
 import News from "./Screens/News";
 import OtherResources from "./Screens/OtherResources";
 import Settings from "./Screens/Settings";
-import Tuitorial from "./Screens/Tuitorial";
+import Tutorial from "./Screens/Tutorial";
+import Staff from "./Screens/Staff";
 
 import { Searchbar } from "react-native-paper";
 
@@ -60,7 +61,7 @@ function HomeScreen({ navigation }) {
         <Pressable
           style={styles.tutorial}
           color="#f194ff"
-          onPress={() => navigation.navigate("Settings")}
+          onPress={() => navigation.navigate("Tutorial")}
         >
           <Text style={styles.buttonText}> Tutorial </Text>
         </Pressable>
@@ -162,7 +163,8 @@ function App() {
         <Stack.Screen name="News" component={News} />
         <Stack.Screen name="OtherResources" component={OtherResources} />
         <Stack.Screen name="Settings" component={Settings} />
-        <Stack.Screen name="Tuitorial" component={Tuitorial} />
+        <Stack.Screen name="Tutorial" component={Tutorial} />
+        <Stack.Screen name="Staff" component={Staff} />
       </Stack.Navigator>
     </NavigationContainer>
   );

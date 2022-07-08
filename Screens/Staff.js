@@ -13,7 +13,7 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 
-function MySchedule({ navigation }) {
+function Staff({ navigation }) {
   return (
     <View style={styles.appContainer}>
       <View style={styles.headerContainer}>
@@ -37,7 +37,7 @@ function MySchedule({ navigation }) {
         <Pressable
           style={styles.tutorial}
           color="#f194ff"
-          onPress={() => navigation.navigate("Tutorial")}
+          onPress={() => navigation.navigate("Tuitorial")}
         >
           <Text style={styles.buttonText}> Tutorial </Text>
         </Pressable>
@@ -45,8 +45,32 @@ function MySchedule({ navigation }) {
 
       <View style={styles.middleContainer}>
         <View>
-          <Text style={styles.heading}>My Schedule</Text>
-          <Text style={styles.bodyText}></Text>
+          <Text style={styles.heading}> Staff Members</Text>
+
+          <Text style={styles.bodyText}>
+            <Text style={{ fontWeight: "bold" }}> • Board of Directors: </Text>
+            <Text>Oversee all major VBIS initiatives. </Text>
+          </Text>
+
+          <Text style={styles.bodyText}>
+            <Text style={{ fontWeight: "bold" }}> • Case Managers: </Text>
+            <Text>Offer one-on-one support to VBIS clients. </Text>
+          </Text>
+
+          <Text style={styles.bodyText}>
+            <Text style={{ fontWeight: "bold" }}> • InReach Team: </Text>
+            <Text>Take in new VBIS clients. </Text>
+          </Text>
+
+          <Text style={styles.bodyText}>
+            <Text style={{ fontWeight: "bold" }}> • Coordinators: </Text>
+            <Text>Manage and direct all operations and programs. </Text>
+          </Text>
+
+          <Text style={styles.bodyText}>
+            <Text style={{ fontWeight: "bold" }}> • Volunteers: </Text>
+            <Text>Frontline workers at VBIS. </Text>
+          </Text>
         </View>
       </View>
 
@@ -74,7 +98,7 @@ function MySchedule({ navigation }) {
   );
 }
 
-export default MySchedule;
+export default Staff;
 
 const styles = StyleSheet.create({
   appContainer: {
@@ -155,9 +179,9 @@ const styles = StyleSheet.create({
   bodyText: {
     fontSize: 20,
 
-    textAlign: "center",
-    padding: 10,
-    fontWeight: "bold",
+    textAlign: "left",
+    padding: 4,
+
     color: "#000000",
   },
 
@@ -185,7 +209,6 @@ const styles = StyleSheet.create({
     marginRight: 30,
     marginLeft: 30,
     flexDirection: "row",
-
     width: 120,
     height: 62,
     borderRadius: 10,

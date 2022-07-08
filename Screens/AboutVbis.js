@@ -9,11 +9,22 @@ import {
   Pressable,
   Image,
 } from "react-native";
-import TopHeader from "../Componenets/TopHeader";
+import TopHeader from "../Components/TopHeader";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import { db } from "../firebase-config.js";
+import { getDatabase, ref, get, child } from "firebase/database";
+import Staff from "./Staff";
+
+const aboutRef = ref(getDatabase(), "about");
+
+let about = null;
+
+get(child(aboutRef, "aboutVBIS")).then((snapshot) => {
+  about = snapshot.val();
+});
 
 function AboutVbis({ navigation }) {
   return (
@@ -39,7 +50,7 @@ function AboutVbis({ navigation }) {
         <Pressable
           style={styles.tutorial}
           color="#f194ff"
-          onPress={() => navigation.navigate("Tuitorial")}
+          onPress={() => navigation.navigate("Tutorial")}
         >
           <Text style={styles.buttonText}> Tutorial </Text>
         </Pressable>
@@ -48,13 +59,16 @@ function AboutVbis({ navigation }) {
       <View style={styles.middleContainer}>
         <View>
           <Text style={styles.heading}>About VBIS</Text>
-          <Text style={styles.bodyText}>
-            The Victoria Brain Injury Society (VBIS) is a not-for-profit
-            organization that offers free-ofcharge programs and services, and
-            whose mission is to support, educate, and advocate for adults with
-            acquired brain injuries and their families; and to increase
-            community awareness about acquired brain injuries.
-          </Text>
+          <Text style={styles.bodyText}>{about}</Text>
+        </View>
+
+        <View>
+          <Pressable
+            onPress={() => navigation.navigate("Staff")}
+            style={styles.staffButton}
+          >
+            <Text style={styles.buttonText}> Staff Members </Text>
+          </Pressable>
         </View>
       </View>
 
@@ -166,6 +180,21 @@ const styles = StyleSheet.create({
     padding: 10,
 
     color: "#000000",
+  },
+  staffButton: {
+    marginTop: 30,
+    marginRight: 50,
+    marginLeft: 100,
+
+    width: "45%",
+    height: 62,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#d3d3d3",
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 7.5,
   },
 
   buttonText: {
