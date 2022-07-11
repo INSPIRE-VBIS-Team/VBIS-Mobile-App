@@ -10,8 +10,8 @@ import { db } from '../firebase-config.js';
 import { getDatabase, ref, get, child } from 'firebase/database';
 
 function Course ({navigation, route}){
-  const {ID} = route.params.ID;
-  console.log(ID);
+  const {ID} = route.params;
+
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
