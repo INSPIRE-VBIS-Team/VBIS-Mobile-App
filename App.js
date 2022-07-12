@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: "35%",
-    marginLeft: 20,
+    marginLeft: 40,
   },
 
   searchBar: {
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
 
-    marginLeft: 40,
+    marginLeft: 80,
   },
 
   /*header Container */
@@ -233,7 +233,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#d3d3d3",
     borderWidth: 1,
     borderColor: "black",
-    borderRadius: 7.5,
   },
   tutorial: {
     marginTop: 50,
@@ -246,7 +245,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#d3d3d3",
     borderWidth: 1,
     borderColor: "black",
-    borderRadius: 7.5,
   },
 
   headerContainer: {
@@ -273,7 +271,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#d3d3d3",
     borderWidth: 1,
     borderColor: "black",
-    borderRadius: 7.5,
   },
   button3: {
     marginTop: 20,
@@ -283,7 +280,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#89B589",
-    borderRadius: 7.5,
   },
 
   buttonText: {
@@ -327,6 +323,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#d3d3d3",
     borderWidth: 1,
     borderColor: "black",
-    borderRadius: 7.5,
   },
 });

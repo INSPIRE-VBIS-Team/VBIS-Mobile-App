@@ -10,12 +10,18 @@ import { db } from '../firebase-config.js';
 import { getDatabase, ref, get, child } from 'firebase/database';
 
 function Course ({navigation, route}){
+<<<<<<< Updated upstream
   const {ID} = route.params;
 
 
+=======
+  const {Index} = route.params;
+  
+  
+>>>>>>> Stashed changes
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Hello User, Welcome to {ID}</Text>
+        <Text>Hello User, Welcome to {programList[Index].name}, Course description: {programList[Index].description}</Text>
         <Button title="Go Back to Programs" onPress={() => navigation.navigate('Programs')}/>
       </View>
     );
