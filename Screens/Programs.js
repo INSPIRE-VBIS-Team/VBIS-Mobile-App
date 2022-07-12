@@ -26,11 +26,11 @@ class Program {
   }
 }
 
-// global library...
+
 global.programList = []; //Converted to a global array to access items in array from other pages
 get(programsRef).then(snapshot => {
   snapshot.forEach(item => {
-    const temp = item;
+    const temp = new Program(item.val().name, item.val().description, item.val().inperson, item.val().online);
     programList.push(temp);
   })
 });
