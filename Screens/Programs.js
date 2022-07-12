@@ -17,9 +17,6 @@ import { getDatabase, ref, get, child } from 'firebase/database';
 
 const programsRef = ref(getDatabase(), 'programs');
 
-<<<<<<< Updated upstream
-let programList = [];
-=======
 class Program {
   constructor(name, description, inperson, online){
     this.name = name;
@@ -31,7 +28,6 @@ class Program {
 
 // global library...
 global.programList = []; //Converted to a global array to access items in array from other pages
->>>>>>> Stashed changes
 get(programsRef).then(snapshot => {
   snapshot.forEach(item => {
     const temp = item;
@@ -76,22 +72,12 @@ function Programs({ navigation }) {
         <View>
           <Text style={styles.heading}> Programs </Text>
           
-<<<<<<< Updated upstream
-          {programList.map((item) =>
-          <View key={item.key}>
-            <Pressable onPress={() => navigation.navigate('COURSE', {
-              //Insert here any parameters that should be passed to the nested page.
-              ID: 'course', //Passing only the key should be enough. Have not tested this yet!
-            })}>
-              <Text style={styles.bodyText}>{ item.val().name }</Text>
-=======
           {programList.map((item, i) =>
             <View key={item.name}>
             <Pressable onPress={() => navigation.navigate('COURSE', {
               Index: i,
             })}>
               <Text style={styles.bodyText}>{ item.name }, {i}</Text>
->>>>>>> Stashed changes
             </Pressable>
           </View>       
         )}
