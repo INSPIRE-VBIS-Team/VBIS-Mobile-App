@@ -3,11 +3,12 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView,
   Button,
   Alert,
   Pressable,
   Image,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
 
 import { AntDesign } from "@expo/vector-icons";
@@ -45,11 +46,11 @@ function Programs({ navigation }) {
       <View style={styles.headerContainer}>
         <View style={styles.logo}>
           <Image
-            style={{ width: 140, height: 50 }}
+            style={{ width: 170, height: 60 }}
             source={require("../assets/vbisLogo.png")}
           />
         </View>
-
+        {/*
         <Pressable
           style={styles.setting}
           onPress={() => navigation.navigate("Settings")}
@@ -67,25 +68,31 @@ function Programs({ navigation }) {
         >
           <Text style={styles.buttonText}> Tutorial </Text>
         </Pressable>
+
+        */}
       </View>
 
       <View style={styles.middleContainer}>
         <View>
           <Text style={styles.heading}> Programs </Text>
 
-          {programList.map((item) => (
-            <View key={item.name}>
-              <Pressable
-                onPress={() =>
-                  navigation.navigate("COURSE", {
-                    ID: item.name,
-                  })
-                }
-              >
-                <Text style={styles.bodyText}>{item.name}</Text>
-              </Pressable>
-            </View>
-          ))}
+          <SafeAreaView>
+            <ScrollView style={styles.scrollView}>
+              {programList.map((item) => (
+                <View key={item.name}>
+                  <Pressable
+                    onPress={() =>
+                      navigation.navigate("COURSE", {
+                        ID: item.name,
+                      })
+                    }
+                  >
+                    <Text style={styles.bodyText}>{item.name}</Text>
+                  </Pressable>
+                </View>
+              ))}
+            </ScrollView>
+          </SafeAreaView>
         </View>
       </View>
 
@@ -128,9 +135,9 @@ const styles = StyleSheet.create({
   logo: {
     marginTop: 50,
     marginRight: 20,
-    marginBottom: 50,
-    width: 100,
-    height: 50,
+    marginBottom: 10,
+    width: 250,
+    height: 150,
     marginLeft: 20,
     alignItems: "center",
     justifyContent: "center",
@@ -176,11 +183,14 @@ const styles = StyleSheet.create({
   middleContainer: {
     flexDirection: "column",
 
-    height: "70%",
+    height: 500,
 
     justifyContent: "space-between",
   },
 
+  scrollView: {
+    height: "90%",
+  },
   heading: {
     alignItems: "center",
     fontSize: 30,
@@ -212,7 +222,8 @@ const styles = StyleSheet.create({
   /*Bottom */
   bottomContainer: {
     flexDirection: "row",
-    height: "15%",
+    height: "20%",
+    marginTop: 10,
 
     backgroundColor: "",
     alignItems: "center",
