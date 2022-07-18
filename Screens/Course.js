@@ -35,7 +35,7 @@ function Course ({navigation, route}){
       <View style={styles.headerContainer}>
         <View style={styles.logo}>
           <Image
-            style={{ width: 140, height: 50 }}
+            style={{ width: 170, height: 60 }}
             source={require("../assets/vbisLogo.png")}
           />
         </View>
