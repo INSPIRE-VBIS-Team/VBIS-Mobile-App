@@ -32,11 +32,11 @@ function Staff({ navigation }) {
       <View style={styles.headerContainer}>
         <View style={styles.logo}>
           <Image
-            style={{ width: 140, height: 50 }}
+            style={{ width: 170, height: 60 }}
             source={require("../assets/vbisLogo.png")}
           />
         </View>
-
+        {/*
         <Pressable
           style={styles.setting}
           onPress={() => navigation.navigate("Settings")}
@@ -54,6 +54,8 @@ function Staff({ navigation }) {
         >
           <Text style={styles.buttonText}> Tutorial </Text>
         </Pressable>
+
+        */}
       </View>
 
       <View style={styles.middleContainer}>
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
   logo: {
     marginTop: 50,
     marginRight: 20,
-    marginBottom: 50,
+    marginBottom: 10,
     width: 100,
     height: 50,
     marginLeft: 20,

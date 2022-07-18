@@ -48,7 +48,7 @@ function HomeScreen({ navigation }) {
             source={require("./assets/vbisLogo.png")}
           />
         </View>
-
+        {/*
         <Pressable
           style={styles.setting}
           onPress={() => navigation.navigate("Settings")}
@@ -66,15 +66,17 @@ function HomeScreen({ navigation }) {
         >
           <Text style={styles.buttonText}> Tutorial </Text>
         </Pressable>
-      </View>
 
+        */}
+      </View>
+      {/*
       <Searchbar
         style={styles.searchBar}
         placeholder="Search"
         onChangeText={onChangeSearch}
         value={searchQuery}
       />
-
+*/}
       <View style={styles.middleContainer}>
         <View style={styles.rowContainer}>
           <Pressable
@@ -85,6 +87,18 @@ function HomeScreen({ navigation }) {
             <Text style={styles.buttonText}>About VBIS</Text>
           </Pressable>
 
+          {/* <Pressable
+            color="#f194ff"
+            style={styles.button2}
+            onPress={() => navigation.navigate("Programs")}
+          >
+            <Text style={styles.buttonText}>Programs</Text>
+          </Pressable>
+
+          */}
+        </View>
+
+        <View style={styles.rowContainer}>
           <Pressable
             color="#f194ff"
             style={styles.button2}
@@ -92,17 +106,7 @@ function HomeScreen({ navigation }) {
           >
             <Text style={styles.buttonText}>Programs</Text>
           </Pressable>
-        </View>
-
-        <View style={styles.rowContainer}>
-          <Pressable
-            style={styles.button2}
-            color="#f194ff"
-            onPress={() => navigation.navigate("MySchedule")}
-          >
-            <Text style={styles.buttonText}>My Schedule</Text>
-          </Pressable>
-
+          {/*
           <Pressable
             style={styles.button2}
             color="#f194ff"
@@ -110,28 +114,29 @@ function HomeScreen({ navigation }) {
           >
             <Text style={styles.buttonText}>VBIS Schedule </Text>
           </Pressable>
+          */}
         </View>
 
         <View style={styles.rowContainer}>
-          <Pressable
+          {/* <Pressable
             color="#f194ff"
             style={styles.button2}
             onPress={() => navigation.navigate("OtherResources")}
           >
             <Text style={styles.buttonText}>Other Resources </Text>
           </Pressable>
-
+*/}
           <Pressable
-            color="#f194ff"
             style={styles.button2}
-            onPress={() => navigation.navigate("News")}
+            color="#f194ff"
+            onPress={() => navigation.navigate("Contact")}
           >
-            <Text style={styles.buttonText}> News </Text>
+            <Text style={styles.buttonText}> Contact VBIS </Text>
           </Pressable>
         </View>
       </View>
 
-      <View style={styles.contactContainer}>
+      {/*}    <View style={styles.contactContainer}>
         <Pressable
           style={styles.button4}
           color="#f194ff"
@@ -140,6 +145,7 @@ function HomeScreen({ navigation }) {
           <Text style={styles.buttonText}> Contact VBIS </Text>
         </Pressable>
       </View>
+      */}
     </View>
   );
 }
@@ -181,12 +187,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 40,
+
+    height: "100%",
   },
 
   title: {
     flex: 0,
     marginTop: 10,
-    marginLeft: 100,
+    marginLeft: 130,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
@@ -196,7 +204,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    height: "35%",
+    height: "38.5%",
     marginLeft: 30,
   },
 
@@ -214,12 +222,11 @@ const styles = StyleSheet.create({
 
   /*header Container */
   logo: {
-    marginTop: 50,
-    marginRight: 20,
-    marginLeft: 140,
-    marginBottom: 10,
-    width: 100,
-    height: 50,
+    marginRight: 30,
+    marginLeft: 100,
+    marginBottom: 50,
+    width: 300,
+    height: 150,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -256,19 +263,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     alignItems: "center",
     justifyContent: "center",
-    height: "16%",
-
-    marginLeft: 20,
+    height: "15%",
   },
 
   button2: {
     marginTop: 4,
-    marginRight: 2,
-    marginLeft: 5,
+    marginRight: "10%",
+    marginLeft: "10%",
 
-    width: 140,
+    width: "100%",
 
-    height: "95%",
+    height: "97%",
 
     alignItems: "center",
     justifyContent: "center",
@@ -276,6 +281,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "black",
     borderRadius: 7.5,
+    paddingBottom: 20,
   },
   button3: {
     marginTop: 20,
@@ -289,7 +295,7 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    fontSize: 15,
+    fontSize: 25,
 
     textAlign: "center",
     padding: 10,
@@ -301,8 +307,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    height: "71.5%",
-    padding: 20,
+    height: "80%",
+    padding: 10,
   },
 
   contactContainer: {
