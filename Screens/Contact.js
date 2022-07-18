@@ -13,11 +13,33 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { db } from '../firebase-config.js';
+import { getDatabase, ref, get, child, val } from 'firebase/database';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
+import { Marker } from "react-native-maps";
+
+const contactRef = ref(getDatabase(), 'contact');
+
+const VBISRegion = {
+  latitude: 48.43251013505817,
+  longitude: -123.36010116633796,
+  latitudeDelta: 0.01,
+  longitudeDelta: 0.01,
+};
+
+let { address, email, hours, phone } = '';
+
+get(contactRef).then(snapshot => {
+  address = snapshot.val().address;
+  email = snapshot.val().email;
+  hours = snapshot.val().hours;
+  phone = snapshot.val().phone;
+});
 
 function Contact({ navigation }) {
   const triggerCall = () => {
     const args = {
-      number: "250-598-9339", // String value with the number to call
+      number: phone, // String value with the number to call
       prompt: false, // Optional boolean property. Determines if the user should be prompted prior to the call
       skipCanOpen: true, // Skip the canOpenURL check
     };
@@ -63,31 +85,40 @@ function Contact({ navigation }) {
 
           <Text style={styles.bodyText}>
             <Text style={{ fontWeight: "bold" }}> Location:</Text>
-            <Text>830 Pembroke Street Units C, D & E Victoria, B.C.</Text>
+            <Text> {address}</Text>
           </Text>
 
           <Text style={styles.bodyText}>
             <Text style={{ fontWeight: "bold" }}> Working Hours:</Text>
-            <Text>Monday-Thursday (10am - 3pm) </Text>
+            <Text> {hours} </Text>
           </Text>
 
           <Text style={styles.bodyText}>
             <Text style={{ fontWeight: "bold" }}> Phone:</Text>
-            <Text>250-598-9339 </Text>
+            <Text> {phone}</Text>
           </Text>
 
           <Text style={styles.bodyText}>
             <Text style={{ fontWeight: "bold" }}> Email:</Text>
-            <Text>admin@vbis.ca</Text>
+            <Text> {email}</Text>
           </Text>
 
           <View>
             <Pressable onPress={triggerCall} style={styles.callButton}>
               <Ionicons name="call" size={24} color="black" />
-              <Text style={styles.bouttonText}> Call Us</Text>
+              <Text style={styles.bouttonText}>Call Us</Text>
             </Pressable>
           </View>
         </View>
+
+        {/* <View style={styles.container}>
+          <MapView
+            style={styles.map}
+            initialRegion={VBISRegion} 
+          >
+            <Marker coordinate={VBISRegion} />
+          </MapView>
+        </View> */}
       </View>
 
       <View style={styles.bottomContainer}>
@@ -208,6 +239,19 @@ const styles = StyleSheet.create({
     padding: 5,
     fontWeight: "bold",
     color: "#000000",
+  },
+
+  map: {
+    marginTop: 20,
+    marginRight: 20,
+    marginLeft: 15,
+    width: 300,
+    height: 230,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 7.5,
   },
 
   /*Bottom */

@@ -16,14 +16,18 @@ import { Entypo } from "@expo/vector-icons";
 import { db } from "../firebase-config.js";
 import { getDatabase, ref, get, child } from "firebase/database";
 
+
 const programsRef = ref(getDatabase(), "programs");
 
 class Program {
-  constructor(name, description, inperson, online) {
+  constructor(name, description, inperson, online, start, end, weekday) {
     this.name = name;
     this.description = description;
     this.inperson = inperson;
     this.online = online;
+    this.start = start;
+    this.end = end;
+    this.weekday = weekday;
   }
 }
 
@@ -78,12 +82,20 @@ function Programs({ navigation }) {
 
           <SafeAreaView>
             <ScrollView style={styles.scrollView}>
-              {programList.map((item) => (
+              {programList.map((item, index) => (
                 <View key={item.name}>
                   <Pressable
+                    style={styles.itemButton}
                     onPress={() =>
                       navigation.navigate("COURSE", {
                         ID: item.name,
+                        Desc: item.description,
+                        InPer: item.inperson,
+                        Online: item.online,
+                        StartTime: item.start,
+                        EndTime: item.end,
+                        Weekday: item.weekday,
+                        Index: index,
                       })
                     }
                   >
@@ -189,7 +201,7 @@ const styles = StyleSheet.create({
   },
 
   scrollView: {
-    height: "90%",
+    height: 500,
   },
   heading: {
     alignItems: "center",
@@ -199,6 +211,19 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     color: "#000000",
+  },
+
+  itemButton: {
+    marginTop: 20,
+
+    width: 330,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#d3d3d3",
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 7.5,
   },
 
   bodyText: {
@@ -222,8 +247,7 @@ const styles = StyleSheet.create({
   /*Bottom */
   bottomContainer: {
     flexDirection: "row",
-    height: "20%",
-    marginTop: 10,
+    height: 200,
 
     backgroundColor: "",
     alignItems: "center",
@@ -237,7 +261,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: 120,
     height: 62,
-    borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#d3d3d3",
