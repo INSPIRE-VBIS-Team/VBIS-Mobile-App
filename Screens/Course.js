@@ -39,7 +39,7 @@ function Course ({navigation, route}){
             source={require("../assets/vbisLogo.png")}
           />
         </View>
-
+        {/*
         <Pressable
           style={styles.setting}
           onPress={() => navigation.navigate("Settings")}
@@ -57,6 +57,8 @@ function Course ({navigation, route}){
         >
           <Text style={styles.buttonText}> Tutorial </Text>
         </Pressable>
+
+        */}
       </View>
       <View style={styles.middleContainer}>
         <View>
