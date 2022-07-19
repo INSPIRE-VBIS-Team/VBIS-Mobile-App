@@ -195,13 +195,13 @@ const styles = StyleSheet.create({
   middleContainer: {
     flexDirection: "column",
 
-    height: 500,
+    height: '60%',
 
     justifyContent: "space-between",
   },
 
   scrollView: {
-    height: 500,
+    height: '85%',
   },
   heading: {
     alignItems: "center",
